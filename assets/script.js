@@ -65,3 +65,8 @@ function messageValidation(){
     }
 
 }
+
+function error(){
+    document.getElementById("err").innerHTML="Please Fill correctly"
+    
+}

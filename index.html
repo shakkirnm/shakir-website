@@ -14,10 +14,10 @@
 <body class="body">
     <header class="p-3 background header-section">
         <div class="row">
-            <div class="col-md-6 col-9 pl-5 pt-3">
+            <div class="col-md-6 col-8 pl-5 pt-3">
                 <h2 class="atag title"> SHAKKIR NM</h2>
             </div>
-            <div class="col-md-6 col-3">
+            <div class="col-md-6 col-4">
                 <nav class="navbar navbar-expand-lg navbar-light mt-2">
                     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
@@ -149,7 +149,7 @@
                 <div class="col-md-4 p-3">
                     <img class="icon" src="assets/images/coding.png" alt="">
                     <h6>Web Development</h6>
-                    <p class="pt-3">I'm a freelance web developer in Dubai having over 3 years of ... Expert and Innovative Web Developer Based in Dubai: ... I am an expert web developer with skills in web design & development, wordpress, shopify etc.</p>
+                    <p class="pt-3 ">I'm a freelance web developer in Dubai having over 3 years of ... Expert and Innovative Web Developer Based in Dubai: ... I am an expert web developer with skills in web design & development, wordpress, shopify etc.</p>
                 </div>
                 <div class="col-md-4 p-3">
                     <img class="icon" src="assets/images/smartphone.png" alt="">
@@ -217,8 +217,11 @@
                           <span class="valid" id="mobileSpan"></span>
                         </div>
                         <div class="form-group">
-                          <textarea  class="form-control" minlength="15" onkeyup="messageValidation()" required style="border-color: rgba(245,223,78,255)" placeholder="Message" name="message" id="messageText" cols="30" rows="10"></textarea>
-                          <span class="valid" id="messageSpan"></span>  
+                          <textarea  class="form-control"  minlength="15" onkeyup="messageValidation()" required style="border-color: rgba(245,223,78,255)" placeholder="Message" name="message" id="messageText" cols="30" rows="10"></textarea>
+                          <span class="valid" id="messageSpan"></span> 
+                        </div>
+                        <div>
+                            <span class="valid" id="err"></span>
                         </div>
                         <div class="submitbtn">
                             <button type="submit" class="sbmtbtn" >Send Message</button>
@@ -262,6 +265,7 @@
     <script>
         $("#submit-form").submit((e)=>{
             e.preventDefault()
+            if( nameValidation() && emailValidation() && mobileValidation() && messageValidation()){
             $.ajax({
                 url:"https://script.google.com/macros/s/AKfycbwKickOjSFVp7DGUB6BOVWsH1rNhwlfJcU4y9tWM6V47jEeBnw2beqpq1lZR08Qq3Og0A/exec",
                 data:$("#submit-form").serialize(),
@@ -276,6 +280,9 @@
     
                 }
             })
+        }else{
+            error()
+        }
         })
     </script>
 </body>
