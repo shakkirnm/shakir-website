@@ -1,7 +1,7 @@
 function nameValidation(){
     var name=document.getElementById("nameText").value
     var nameSpan=document.getElementById("nameSpan");
-    var letters = /^[a-zA-Z\s]*$/;
+    var letters = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/;
     if(name==""){
         nameSpan.innerHTML="Filed is required"
         return false;
@@ -9,6 +9,10 @@ function nameValidation(){
     else if(name.match(letters)){
         nameSpan.innerHTML="";
         return true;
+    }
+    else if(name==" "){
+        nameSpan.innerHTML="Don't use Space at first letter";
+        return false;
     }
     else{
         nameSpan.innerHTML="Use only charactors" ;
@@ -22,6 +26,9 @@ function emailValidation(){
     var letters =/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(email==""){
         emailSpan.innerHTML="Filed is required"
+        return false;
+    }else if(email==" "){
+        emailSpan.innerHTML="Don't use Space at first letter";
         return false;
     }
     else if(email.match(letters)){
@@ -37,14 +44,22 @@ function mobileValidation(){
     var mobile=document.getElementById("mobileText").value
     var mobileSpan=document.getElementById("mobileSpan")
     var letters=/^\d{10}$/;
+    var charactors =/^[-a-zA-Z-()]*$/;
     if(mobile==""){
         mobileSpan.innerHTML="Filed is required"
         return false;
-    }
-    else if(mobile.match(letters)){
+    }else if(mobile==" "){
+        mobileSpan.innerHTML="Don't use space "
+        return false;
+
+    }else if(mobile.match(letters)){
         mobileSpan.innerHTML=""
         return true;
-    }else{
+    }else if(mobile.match(charactors)){
+        mobileSpan.innerHTML="Don't use charactors"
+        return false;
+    }
+    else{
         mobileSpan.innerHTML="Enter valid mobile number"
     }
 }
@@ -55,8 +70,11 @@ function messageValidation(){
     if(message==""){
         messageSpan.innerHTML="Filed is required"
         return false;
-    }
-    else if(message.length<20){
+    }else if(message==" "){
+        messageSpan.innerHTML="Don't use Space at first letter"
+        return false;
+
+    }else if(message.length<20){
         messageSpan.innerHTML="Enter minimum 20 character"
         return false;
     }else{
