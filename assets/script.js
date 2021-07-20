@@ -88,3 +88,7 @@ function error(){
     document.getElementById("err").innerHTML="Please Fill correctly"
     
 }
+
+// $(document).ready(function(){
+//     $(".numeric").numeric();
+//  });
