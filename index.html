@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shakkir Nm</title>
-    <link rel = "icon" href ="assets/images/snlogo.jpg" type = "image/x-icon">
-    <link rel="icon" href="assets/images/snlogo.jpg">
     <link rel="stylesheet" href="assets/style.css">
     <link rel = "icon" href ="assets/images/image1.png" type ="image" sizes="16x16">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -203,20 +201,22 @@
                     <form id="submit-form" class="" action="">
                         <div class="form-row">
                           <div class="form-group col-md-6">
-                            <input name="name"  type="text" onkeyup="nameValidation()" class="form-control box" style="border-color: rgba(245,223,78,255)" id="nameText" placeholder="Name">
+                            <input name="name"  type="text"  class="form-control box" style="border-color: rgba(245,223,78,255)" id="nameText" placeholder="Name">
                             <span class="valid" id="nameSpan"></span>
                           </div>
                           <div class="form-group col-md-6">
-                            <input name="email"  type="text" onkeyup="emailValidation()" class="form-control" style="border-color: rgba(245,223,78,255)" id="emailText" placeholder="Email">
+                            <input name="email"  type="text"  class="form-control" style="border-color: rgba(245,223,78,255)" id="emailText" placeholder="Email">
                             <span class="valid" id="emailSpan"></span>
                           </div>
                         </div>
                         <div class="form-group">
-                          <input name="phone"   type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onkeyup="mobileValidation()"  maxlength="10" minlength="10"  class="form-control" style="border-color: rgba(245,223,78,255)" id="mobileText" placeholder="Mobile">
+                          <input name="phone"   type="text"   oninput="this.value=this.value.replace(/[^\d]/,'')"  
+                          maxlength="10"   class="form-control" style="border-color: rgba(245,223,78,255)" id="mobileText" placeholder="Mobile">
                           <span class="valid" id="mobileSpan"></span>
                         </div>
                         <div class="form-group">
-                          <textarea  class="form-control"  minlength="15" onkeyup="messageValidation()"  style="border-color: rgba(245,223,78,255)" placeholder="Message" name="message" id="messageText" cols="30" rows="10"></textarea>
+                          <textarea  class="form-control"  minlength="15"  style="border-color: rgba(245,223,78,255)" placeholder="Message" name="message" 
+                          id="messageText" cols="30" rows="10"></textarea>
                           <span class="valid" id="messageSpan"></span> 
                         </div>
                         <div>
@@ -278,7 +278,10 @@
                 }
             })
         }else{
-            error()
+            nameValidation()
+            emailValidation()
+            mobileValidation()
+            messageValidation()
         }
         })
     </script>

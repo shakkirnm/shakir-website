@@ -1,94 +1,90 @@
 function nameValidation(){
-    var name=document.getElementById("nameText").value
-    var nameSpan=document.getElementById("nameSpan");
-    var letters = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/;
+    var name=$('#nameText').val();
+    var letters= /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/;
     if(name==""){
-        nameSpan.innerHTML="Filed is required"
+        $('#nameSpan').html("Filed is required")
         return false;
     }
     else if(name.match(letters)){
-        nameSpan.innerHTML="";
+        $('#nameSpan').html("")
         return true;
     }
     else if(name==" "){
-        nameSpan.innerHTML="Don't use Space at first letter";
+       $('#nameSpan').html("Don't use Space at first letter")
         return false;
     }
     else{
-        nameSpan.innerHTML="Use only charactors" ;
+        $('#nameSpan').html("Use only charactors") ;
         return false;
     }
 }
 
 function emailValidation(){
-    var email=document.getElementById("emailText").value
-    var emailSpan=document.getElementById("emailSpan");
-    var letters =/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var email=$('#emailText').val();
+    var letters= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(email==""){
-        emailSpan.innerHTML="Filed is required"
+        $('#emailSpan').html("Filed is required")
         return false;
     }else if(email==" "){
-        emailSpan.innerHTML="Don't use Space at first letter";
+        $('#emailSpan').html("Don't use Space at first letter");
         return false;
     }
     else if(email.match(letters)){
-        emailSpan.innerHTML="";
+        $('#emailSpan').html("")
         return true;
     }else{
-        emailSpan.innerHTML="Enter valid e-mail"
+        $('#emailSpan').html("Enter valid E-mail")
         return false;
     }
 }
 
 function mobileValidation(){
-    var mobile=document.getElementById("mobileText").value
-    var mobileSpan=document.getElementById("mobileSpan")
+    var mobile=$('#mobileText').val();
     var letters=/^\d{10}$/;
-    var charactors =/^[-a-zA-Z-()]*$/;
     if(mobile==""){
-        mobileSpan.innerHTML="Filed is required"
+        $('#mobileSpan').html("Filed is required")
         return false;
-    }else if(mobile==" "){
-        mobileSpan.innerHTML="Don't use space "
-        return false;
-
     }else if(mobile.match(letters)){
-        mobileSpan.innerHTML=""
+        $('#mobileSpan').html("")
         return true;
-    }else if(mobile.match(charactors)){
-        mobileSpan.innerHTML="Don't use charactors"
+    }else{
+        $('#mobileSpan').html("Enter valid mobile number")
         return false;
     }
-    else{
-        mobileSpan.innerHTML="Enter valid mobile number"
-    }
+
 }
 
 function messageValidation(){
-    var message=document.getElementById("messageText").value
-    var messageSpan=document.getElementById("messageSpan")
+    var message=$('#messageText').val();
     if(message==""){
-        messageSpan.innerHTML="Filed is required"
+        $('#messageSpan').html("Filed is required")
         return false;
     }else if(message==" "){
-        messageSpan.innerHTML="Don't use Space at first letter"
+        $('#messageSpan').html("Don't use Space at first letter")
         return false;
 
-    }else if(message.length<20){
-        messageSpan.innerHTML="Enter minimum 20 character"
+    }else if(message.length<=20){
+        $('#messageSpan').html("Enter minimum 20 character")
         return false;
+    }else if(message.length>20){
+        $('#messageSpan').html("")
+        return true;
     }else{
-        messageSpan.innerHTML=""
+        $('#messageSpan').html("")
         return true;
     }
-
 }
 
-function error(){
-    document.getElementById("err").innerHTML="Please Fill correctly"
-    
-}
+$('#nameText').keyup(function(){
+    nameValidation();
+});
+$('#emailText').keyup(function(){
+    emailValidation();
+});
+$('#mobileText').keyup(function(){
+    mobileValidation();
+})
+$('#messageText').keyup(function(){
+    messageValidation();
+})
 
-// $(document).ready(function(){
-//     $(".numeric").numeric();
-//  });
