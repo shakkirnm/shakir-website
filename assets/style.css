@@ -109,3 +109,8 @@ a{
         font-size: 2.4rem;
     }
 }
+
+.lnk{
+    text-decoration: none;
+    color: black;
+}

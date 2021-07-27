@@ -9,12 +9,8 @@ function nameValidation(){
         $('#nameSpan').html("")
         return true;
     }
-    else if(name==" "){
-       $('#nameSpan').html("Don't use Space at first letter")
-        return false;
-    }
     else{
-        $('#nameSpan').html("Use only charactors") ;
+        $('#nameSpan').html("Don't use Space at last letter") ;
         return false;
     }
 }
@@ -25,11 +21,7 @@ function emailValidation(){
     if(email==""){
         $('#emailSpan').html("Filed is required")
         return false;
-    }else if(email==" "){
-        $('#emailSpan').html("Don't use Space at first letter");
-        return false;
-    }
-    else if(email.match(letters)){
+    }else if(email.match(letters)){
         $('#emailSpan').html("")
         return true;
     }else{

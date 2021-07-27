@@ -173,7 +173,7 @@
                     </div>
                     <div>              
                         <h3>Call Me</h3>
-                        <p>+917736160163</p>
+                        <p class="lnk"><a href="tel:+917736160163" class="lnk">+91 7736 160 163</a></p>
                     </div>
                     
                 </div>
@@ -183,7 +183,7 @@
                     </div>
                     <div>              
                         <h3>Email Me</h3>
-                        <p>shakkirnm@gmail.com</p>
+                        <p><a href="mailto:shakkirnm@mail.com" class="lnk"">shakkirnm@gmail.com</a></p>
                     </div>
                     
                 </div>
@@ -201,11 +201,13 @@
                     <form id="submit-form" class="" action="">
                         <div class="form-row">
                           <div class="form-group col-md-6">
-                            <input name="name"  type="text"  class="form-control box" style="border-color: rgba(245,223,78,255)" id="nameText" placeholder="Name">
+                            <input name="name"  type="text"  class="form-control box" style="border-color: rgba(245,223,78,255)" 
+                            id="nameText" placeholder="Name" oninput="this.value=this.value.replace(/[^A-Za-z-,.;'&/.() ]|^ /g,'')">
                             <span class="valid" id="nameSpan"></span>
                           </div>
                           <div class="form-group col-md-6">
-                            <input name="email"  type="text"  class="form-control" style="border-color: rgba(245,223,78,255)" id="emailText" placeholder="Email">
+                            <input name="email"  type="text"  class="form-control" style="border-color: rgba(245,223,78,255)" 
+                            id="emailText" placeholder="Email" oninput="this.value=this.value.replace(/\s/g, '')">
                             <span class="valid" id="emailSpan"></span>
                           </div>
                         </div>
@@ -216,7 +218,7 @@
                         </div>
                         <div class="form-group">
                           <textarea  class="form-control"  minlength="15"  style="border-color: rgba(245,223,78,255)" placeholder="Message" name="message" 
-                          id="messageText" cols="30" rows="10"></textarea>
+                          id="messageText" cols="30" rows="10" oninput="this.value=this.value.replace(/[^A-Za-z-,.;^\d'&/.() ]|^ /g,'')"></textarea>
                           <span class="valid" id="messageSpan"></span> 
                         </div>
                         <div>
